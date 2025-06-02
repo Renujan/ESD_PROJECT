@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -65,6 +66,16 @@ const Index = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const downloadCV = () => {
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/e6ae7112-1f8c-478e-a65f-36b1e9341b78.png';
+    link.download = 'Roshan_Renujan_CV.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const personalInfo = {
@@ -369,12 +380,15 @@ const Index = () => {
               <CardHeader>
                 <CardTitle className="text-3xl text-slate-800 dark:text-slate-100 flex items-center justify-between">
                   My Professional Profile
-                  <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <Button 
+                    onClick={downloadCV}
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
                     <Download className="w-4 h-4 mr-2" />
                     Download CV
                   </Button>
                 </CardTitle>
-                <CardDescription className="text-lg">
+                <CardDescription className="text-lg text-slate-600 dark:text-slate-400">
                   Complete overview of my education, skills, and experience
                 </CardDescription>
               </CardHeader>
@@ -393,7 +407,7 @@ const Index = () => {
             <Card className="shadow-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Featured Projects</CardTitle>
-                <CardDescription>Showcase of my development work and achievements</CardDescription>
+                <CardDescription className="text-slate-600 dark:text-slate-400">Showcase of my development work and achievements</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-8">
@@ -439,7 +453,7 @@ const Index = () => {
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-lg">R</span>
                 </div>
-                <h3 className="text-xl font-bold">Roshan Renujan</h3>
+                <h3 className="text-xl font-bold text-white">Roshan Renujan</h3>
               </div>
               <p className="text-slate-300 mb-4">
                 Software Engineering Student passionate about creating innovative solutions and continuous learning.
