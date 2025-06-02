@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Switch } from "@/components/ui/switch";
-import { Download, Mail, Phone, Github, Linkedin, Moon, Sun, Menu, X, ChevronUp } from "lucide-react";
+import { Download, Mail, Phone, Github, Linkedin, Moon, Sun, Menu, X, ChevronUp, MapPin, Calendar, Heart } from "lucide-react";
 import { ESDTopics } from "@/components/ESDTopics";
 
 const Index = () => {
@@ -108,43 +107,57 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500">
-      {/* Fixed Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-all duration-300">
+      {/* Enhanced Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-700/20 transition-all duration-300 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              ESD Portfolio
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">R</span>
+              </div>
+              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                ESD Portfolio
+              </div>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection('about')}
-                className={`text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
+                className={`relative px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${
                   activeSection === 'about' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
                 About
+                {activeSection === 'about' && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+                )}
               </button>
               <button
                 onClick={() => scrollToSection('cv')}
-                className={`text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
+                className={`relative px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${
                   activeSection === 'cv' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
                 CV
+                {activeSection === 'cv' && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+                )}
               </button>
               <button
                 onClick={() => scrollToSection('esd-topics')}
-                className={`text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
+                className={`relative px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${
                   activeSection === 'esd-topics' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
                 ESD Topics
+                {activeSection === 'esd-topics' && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+                )}
               </button>
               
-              {/* Theme Toggle */}
-              <div className="flex items-center space-x-2">
+              {/* Enhanced Theme Toggle */}
+              <div className="flex items-center space-x-3 bg-slate-100 dark:bg-slate-800 rounded-full p-2">
                 <Sun className="w-4 h-4 text-yellow-500" />
                 <Switch checked={darkMode} onCheckedChange={setDarkMode} />
                 <Moon className="w-4 h-4 text-blue-500" />
@@ -153,14 +166,14 @@ const Index = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 rounded-full p-2">
                 <Sun className="w-4 h-4 text-yellow-500" />
                 <Switch checked={darkMode} onCheckedChange={setDarkMode} />
                 <Moon className="w-4 h-4 text-blue-500" />
               </div>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-slate-600 dark:text-slate-300"
+                className="text-slate-600 dark:text-slate-300 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -169,23 +182,23 @@ const Index = () => {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-700">
+            <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
               <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => scrollToSection('about')}
-                  className="text-left py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-left py-3 px-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all"
                 >
                   About
                 </button>
                 <button
                   onClick={() => scrollToSection('cv')}
-                  className="text-left py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-left py-3 px-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all"
                 >
                   CV
                 </button>
                 <button
                   onClick={() => scrollToSection('esd-topics')}
-                  className="text-left py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="text-left py-3 px-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all"
                 >
                   ESD Topics
                 </button>
@@ -196,16 +209,16 @@ const Index = () => {
       </nav>
 
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 dark:from-blue-400/5 dark:to-indigo-400/5"></div>
         <div className="relative z-10 text-center px-4 animate-fade-in">
-          <Avatar className="w-32 h-32 mx-auto mb-6 ring-4 ring-blue-200 dark:ring-blue-800 shadow-2xl">
+          <Avatar className="w-40 h-40 mx-auto mb-8 ring-4 ring-blue-200 dark:ring-blue-800 shadow-2xl">
             <AvatarImage 
               src={personalInfo.profileImage} 
               alt={personalInfo.name}
               className="object-cover object-center"
             />
-            <AvatarFallback className="text-2xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white">RR</AvatarFallback>
+            <AvatarFallback className="text-3xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white">RR</AvatarFallback>
           </Avatar>
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             {personalInfo.name}
@@ -254,19 +267,23 @@ const Index = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3 group">
                     <Mail className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-                    <span className="text-slate-600 dark:text-slate-300">{personalInfo.email}</span>
+                    <a href={`mailto:${personalInfo.email}`} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">
+                      {personalInfo.email}
+                    </a>
                   </div>
                   <div className="flex items-center space-x-3 group">
                     <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-                    <span className="text-slate-600 dark:text-slate-300">{personalInfo.phone}</span>
+                    <a href={`tel:${personalInfo.phone}`} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">
+                      {personalInfo.phone}
+                    </a>
                   </div>
                   <div className="flex items-center space-x-3 group">
                     <Github className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-                    <a href={personalInfo.github} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">GitHub Profile</a>
+                    <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">GitHub Profile</a>
                   </div>
                   <div className="flex items-center space-x-3 group">
                     <Linkedin className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-                    <a href={personalInfo.linkedin} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">LinkedIn Profile</a>
+                    <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">LinkedIn Profile</a>
                   </div>
                 </div>
               </CardContent>
@@ -411,6 +428,108 @@ const Index = () => {
           <ESDTopics />
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 dark:bg-slate-950 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* About Section */}
+            <div className="col-span-2 md:col-span-1">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">R</span>
+                </div>
+                <h3 className="text-xl font-bold">Roshan Renujan</h3>
+              </div>
+              <p className="text-slate-300 mb-4">
+                Software Engineering Student passionate about creating innovative solutions and continuous learning.
+              </p>
+              <div className="flex space-x-4">
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <Github className="w-5 h-5" />
+                </a>
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href={`mailto:${personalInfo.email}`} className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-white transition-colors">
+                    About Me
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('cv')} className="text-slate-300 hover:text-white transition-colors">
+                    My CV
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('esd-topics')} className="text-slate-300 hover:text-white transition-colors">
+                    ESD Topics
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-blue-400">Contact</h4>
+              <ul className="space-y-3">
+                <li className="flex items-center space-x-2">
+                  <Mail className="w-4 h-4 text-blue-400" />
+                  <a href={`mailto:${personalInfo.email}`} className="text-slate-300 hover:text-white transition-colors">
+                    {personalInfo.email}
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <Phone className="w-4 h-4 text-blue-400" />
+                  <a href={`tel:${personalInfo.phone}`} className="text-slate-300 hover:text-white transition-colors">
+                    {personalInfo.phone}
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <MapPin className="w-4 h-4 text-blue-400" />
+                  <span className="text-slate-300">Sri Lanka</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Education */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-blue-400">Education</h4>
+              <div className="space-y-2">
+                <p className="text-slate-300 font-medium">Northern University</p>
+                <p className="text-slate-400 text-sm">Computer Science & Software Engineering</p>
+                <div className="flex items-center space-x-2 text-sm text-slate-400">
+                  <Calendar className="w-4 h-4" />
+                  <span>Expected: 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-slate-400 text-sm">
+                © 2024 Roshan Renujan. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-2 text-slate-400 text-sm mt-4 md:mt-0">
+                <span>Made with</span>
+                <Heart className="w-4 h-4 text-red-500" />
+                <span>for ESD Portfolio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
