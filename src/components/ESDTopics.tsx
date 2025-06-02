@@ -258,8 +258,8 @@ export const ESDTopics = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-slate-800 mb-4">Employability Skills Development Topics</h2>
-        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4">Employability Skills Development Topics</h2>
+        <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           Explore comprehensive coverage of essential ESD topics with theory, examples, and practical Q&As.
           Each topic is designed to enhance your professional development and workplace readiness.
         </p>
@@ -267,16 +267,16 @@ export const ESDTopics = () => {
 
       <div className="grid gap-6">
         {esdTopics.map((topic) => (
-          <Card key={topic.id} className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow">
+          <Card key={topic.id} className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className="text-blue-600">
+                  <div className="text-blue-600 dark:text-blue-400">
                     {getIcon(topic.id)}
                   </div>
                   <div>
-                    <CardTitle className="text-xl text-slate-800">{topic.title}</CardTitle>
-                    <CardDescription className="mt-2">
+                    <CardTitle className="text-xl text-slate-800 dark:text-slate-100">{topic.title}</CardTitle>
+                    <CardDescription className="mt-2 text-slate-600 dark:text-slate-300">
                       {topic.shortDescription}
                     </CardDescription>
                   </div>
@@ -285,7 +285,7 @@ export const ESDTopics = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => toggleTopic(topic.id)}
-                  className="text-blue-600 hover:text-blue-700"
+                  className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   {expandedTopics[topic.id] ? (
                     <>
@@ -305,15 +305,15 @@ export const ESDTopics = () => {
             {expandedTopics[topic.id] && (
               <CardContent className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-2">Theory & Overview</h4>
-                  <p className="text-slate-600 leading-relaxed">{topic.theory}</p>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Theory & Overview</h4>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{topic.theory}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-2">Examples</h4>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Examples</h4>
                   <ul className="space-y-2">
                     {topic.examples.map((example, index) => (
-                      <li key={index} className="text-slate-600 pl-4 border-l-2 border-blue-200">
+                      <li key={index} className="text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-blue-200 dark:border-blue-700">
                         {example}
                       </li>
                     ))}
@@ -321,15 +321,15 @@ export const ESDTopics = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-3">Common Questions & Answers</h4>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-3">Common Questions & Answers</h4>
                   <div className="space-y-4">
                     {topic.questions.map((qa, index) => (
-                      <div key={index} className="bg-slate-50 rounded-lg p-4">
-                        <p className="font-medium text-slate-700 mb-2">
-                          <span className="text-blue-600">Q:</span> {qa.q}
+                      <div key={index} className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-4">
+                        <p className="font-medium text-slate-700 dark:text-slate-200 mb-2">
+                          <span className="text-blue-600 dark:text-blue-400">Q:</span> {qa.q}
                         </p>
-                        <p className="text-slate-600">
-                          <span className="text-green-600">A:</span> {qa.a}
+                        <p className="text-slate-600 dark:text-slate-300">
+                          <span className="text-green-600 dark:text-green-400">A:</span> {qa.a}
                         </p>
                       </div>
                     ))}
