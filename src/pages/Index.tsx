@@ -126,7 +126,7 @@ const Index = () => {
                 <span className="text-white font-bold text-lg">R</span>
               </div>
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                ESD Portfolio
+                PS Portfolio
               </div>
             </div>
             
@@ -537,7 +537,7 @@ const Index = () => {
               <div className="flex items-center space-x-2 text-slate-400 text-sm mt-4 md:mt-0">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500" />
-                <span>for ESD Portfolio</span>
+                <span>for PS Portfolio</span>
               </div>
             </div>
           </div>
