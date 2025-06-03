@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Switch } from "@/components/ui/switch";
-import { Download, Mail, Phone, Github, Linkedin, Moon, Sun, Menu, X, ChevronUp, MapPin, Calendar, Heart } from "lucide-react";
+import { Download, Mail, Phone, Github, Linkedin, Moon, Sun, Menu, X, ChevronUp, MapPin, Calendar, Heart, Code, Briefcase, GraduationCap, Settings } from "lucide-react";
 import { ESDTopics } from "@/components/ESDTopics";
 
 const Index = () => {
@@ -101,22 +101,41 @@ const Index = () => {
     {
       title: "Salon System (E-commerce)",
       duration: "1st year 2nd semester | July 2024",
-      description: "Developed a user-friendly website for a salon, incorporating pages such as Home, Types of Haircuts, Contact us, and About us. Enable users to do book hairdresser online, with backend functionality using PHP and SQL."
+      description: "Developed a user-friendly website for a salon, incorporating pages such as Home, Types of Haircuts, Contact us, and About us. Enable users to do book hairdresser online, with backend functionality using PHP and SQL.",
+      tech: ["PHP", "SQL", "HTML/CSS"]
     },
     {
       title: "Java Swing Application (Group Project)",
       duration: "1st year 2nd semester | June 2024",
-      description: "Managed customer orders for tea repairs, repainting, and parts. Developed SHIP SHARE project using Java Swing and SQL."
+      description: "Managed customer orders for tea repairs, repainting, and parts. Developed SHIP SHARE project using Java Swing and SQL.",
+      tech: ["Java", "Swing", "SQL"]
     },
     {
       title: "Android Application (Group Project)",
       duration: "2nd year 1st semester | Nov 2024",
-      description: "An Android app using Java, Firebase, and REST API, delivering AI-powered features with real-time data sync and smooth user interaction. Built a user-friendly UI with RecyclerView and Fragments, and integrated Firebase for authentication and storage."
+      description: "An Android app using Java, Firebase, and REST API, delivering AI-powered features with real-time data sync and smooth user interaction. Built a user-friendly UI with RecyclerView and Fragments, and integrated Firebase for authentication and storage.",
+      tech: ["Java", "Firebase", "REST API", "Android"]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500 relative overflow-hidden">
+      {/* Enhanced Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        
+        {/* Geometric Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="grid grid-cols-12 gap-8 h-full w-full">
+            {Array.from({ length: 144 }).map((_, i) => (
+              <div key={i} className="w-2 h-2 bg-blue-500 rounded-full opacity-20"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Enhanced Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-700/20 transition-all duration-300 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -218,24 +237,62 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Parallax */}
+      {/* Enhanced Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 dark:from-blue-400/5 dark:to-indigo-400/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-indigo-600/10 dark:from-blue-400/5 dark:to-indigo-400/5"></div>
+        
+        {/* Enhanced Floating Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-32 left-1/4 w-3 h-3 bg-blue-500 rounded-full animate-bounce delay-300"></div>
+          <div className="absolute top-64 right-1/4 w-2 h-2 bg-indigo-500 rounded-full animate-bounce delay-700"></div>
+          <div className="absolute bottom-32 left-1/3 w-4 h-4 bg-purple-500 rounded-full animate-bounce delay-1000"></div>
+        </div>
+        
         <div className="relative z-10 text-center px-4 animate-fade-in">
-          <Avatar className="w-40 h-40 mx-auto mb-8 ring-4 ring-blue-200 dark:ring-blue-800 shadow-2xl">
-            <AvatarImage 
-              src={personalInfo.profileImage} 
-              alt={personalInfo.name}
-              className="object-cover object-center"
-            />
-            <AvatarFallback className="text-3xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white">RR</AvatarFallback>
-          </Avatar>
+          <div className="relative">
+            <Avatar className="w-40 h-40 mx-auto mb-8 ring-4 ring-blue-200 dark:ring-blue-800 shadow-2xl">
+              <AvatarImage 
+                src={personalInfo.profileImage} 
+                alt={personalInfo.name}
+                className="object-cover object-center"
+              />
+              <AvatarFallback className="text-3xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white">RR</AvatarFallback>
+            </Avatar>
+            
+            {/* Status Indicator */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+              <div className="bg-green-500 w-6 h-6 rounded-full border-4 border-white dark:border-slate-900 shadow-lg flex items-center justify-center">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             {personalInfo.name}
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            {personalInfo.title} specializing in modern web development and software engineering
+          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-4 max-w-2xl mx-auto">
+            {personalInfo.title}
           </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-xl mx-auto">
+            Passionate about creating innovative solutions and continuous learning in the field of software engineering.
+          </p>
+          
+          {/* Quick Stats */}
+          <div className="flex justify-center space-x-8 mb-8">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3+</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">2+</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">Years</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">10+</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">Skills</div>
+            </div>
+          </div>
+          
           <div className="flex justify-center space-x-4">
             <Button 
               onClick={() => scrollToSection('about')}
@@ -252,78 +309,99 @@ const Index = () => {
             </Button>
           </div>
         </div>
-        
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-indigo-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      {/* Enhanced About Section */}
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-transparent dark:via-slate-800/50"></div>
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-              About Me
-            </h2>
+            <div className="inline-flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                <Code className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100">
+                About Me
+              </h2>
+            </div>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
+            <p className="text-lg text-slate-600 dark:text-slate-300 mt-6 max-w-3xl mx-auto">
+              Passionate about creating innovative solutions and continuous learning in the field of software engineering.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <Card className="border-l-4 border-l-blue-500 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="border-l-4 border-l-blue-500 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group">
               <CardHeader>
-                <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Personal Information</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Personal Information</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3 group">
-                    <Mail className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center space-x-3 group/item">
+                    <Mail className="w-5 h-5 text-blue-600 group-hover/item:scale-110 transition-transform" />
                     <a href={`mailto:${personalInfo.email}`} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">
                       {personalInfo.email}
                     </a>
                   </div>
-                  <div className="flex items-center space-x-3 group">
-                    <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center space-x-3 group/item">
+                    <Phone className="w-5 h-5 text-blue-600 group-hover/item:scale-110 transition-transform" />
                     <a href={`tel:${personalInfo.phone}`} className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">
                       {personalInfo.phone}
                     </a>
                   </div>
-                  <div className="flex items-center space-x-3 group">
-                    <Github className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center space-x-3 group/item">
+                    <Github className="w-5 h-5 text-blue-600 group-hover/item:scale-110 transition-transform" />
                     <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">GitHub Profile</a>
                   </div>
-                  <div className="flex items-center space-x-3 group">
-                    <Linkedin className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center space-x-3 group/item">
+                    <Linkedin className="w-5 h-5 text-blue-600 group-hover/item:scale-110 transition-transform" />
                     <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline transition-colors">LinkedIn Profile</a>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group">
               <CardHeader>
-                <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Education</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <GraduationCap className="w-5 h-5 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Education</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <h3 className="font-semibold text-slate-700 dark:text-slate-300 text-lg">{personalInfo.degree}</h3>
                   <p className="text-slate-600 dark:text-slate-400">{personalInfo.university}</p>
-                  <div className="inline-block bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 px-3 py-1 rounded-full">
-                    <span className="text-sm text-blue-800 dark:text-blue-200">Expected Graduation: {personalInfo.expectedGraduation}</span>
+                  <div className="inline-block bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 px-4 py-2 rounded-full">
+                    <span className="text-sm text-blue-800 dark:text-blue-200 font-medium">Expected Graduation: {personalInfo.expectedGraduation}</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
+          {/* Enhanced Skills Section */}
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group">
               <CardHeader>
-                <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Technical Skills</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Code className="w-5 h-5 text-white" />
+                  </div>
+                  <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Technical Skills</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {skills.technical.map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 hover:scale-105 transition-transform">
+                    <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 hover:scale-105 transition-transform cursor-default">
                       {skill}
                     </Badge>
                   ))}
@@ -331,14 +409,19 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group">
               <CardHeader>
-                <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Frameworks</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
+                  <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Frameworks</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {skills.frameworks.map((framework, index) => (
-                    <Badge key={index} variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 hover:scale-105 transition-transform">
+                    <Badge key={index} variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 hover:scale-105 transition-transform cursor-default">
                       {framework}
                     </Badge>
                   ))}
@@ -346,14 +429,19 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group">
               <CardHeader>
-                <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Tools & Databases</CardTitle>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Settings className="w-5 h-5 text-white" />
+                  </div>
+                  <CardTitle className="text-xl text-slate-800 dark:text-slate-100">Tools & Databases</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {[...skills.databases, ...skills.tools.slice(0, 6)].map((item, index) => (
-                    <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200 hover:scale-105 transition-transform">
+                    <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200 hover:scale-105 transition-transform cursor-default">
                       {item}
                     </Badge>
                   ))}
@@ -364,18 +452,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CV Section */}
-      <section id="cv" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50 dark:bg-slate-800/50">
-        <div className="max-w-7xl mx-auto">
+      {/* Enhanced CV Section */}
+      <section id="cv" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50/50 dark:bg-slate-800/50 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 to-indigo-50/30 dark:from-blue-900/10 dark:to-indigo-900/10"></div>
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-              Curriculum Vitae
-            </h2>
+            <div className="inline-flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100">
+                Curriculum Vitae
+              </h2>
+            </div>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
           </div>
 
           <div className="space-y-12">
-            <Card className="shadow-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 ring-1 ring-slate-200/50 dark:ring-slate-700/50">
               <CardHeader>
                 <CardTitle className="text-3xl text-slate-800 dark:text-slate-100 flex items-center justify-between">
                   My Professional Profile
@@ -403,7 +497,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+            <Card className="shadow-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 ring-1 ring-slate-200/50 dark:ring-slate-700/50">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-800 dark:text-slate-100">Featured Projects</CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-400">Showcase of my development work and achievements</CardDescription>
@@ -411,11 +505,20 @@ const Index = () => {
               <CardContent>
                 <div className="grid gap-8">
                   {projects.map((project, index) => (
-                    <div key={index} className="border-l-4 border-l-gradient-to-b from-blue-500 to-indigo-500 pl-6 hover:pl-8 transition-all duration-300">
-                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
-                        <h3 className="font-bold text-xl text-slate-700 dark:text-slate-200 mb-2">{project.title}</h3>
-                        <p className="text-sm text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.duration}</p>
-                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{project.description}</p>
+                    <div key={index} className="group">
+                      <div className="border-l-4 border-l-blue-500 pl-6 hover:pl-8 transition-all duration-300">
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02]">
+                          <h3 className="font-bold text-xl text-slate-700 dark:text-slate-200 mb-2">{project.title}</h3>
+                          <p className="text-sm text-blue-600 dark:text-blue-400 mb-3 font-medium">{project.duration}</p>
+                          <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">{project.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tech.map((tech, techIndex) => (
+                              <Badge key={techIndex} variant="outline" className="text-xs border-blue-300 text-blue-700 dark:border-blue-600 dark:text-blue-300">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -426,24 +529,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PS Topics Section */}
-      <section id="ps-topics" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      {/* Enhanced PS Topics Section */}
+      <section id="ps-topics" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-50/30 to-transparent dark:via-indigo-900/10"></div>
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-              PS Topics
-            </h2>
+            <div className="inline-flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100">
+                PS Topics
+              </h2>
+            </div>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
             <p className="text-lg text-slate-600 dark:text-slate-300 mt-6 max-w-3xl mx-auto">
-              Explore comprehensive insights into Employability Skills Development topics that enhance professional growth and career success.
+              Explore comprehensive insights into Professional Skills topics that enhance professional growth and career success.
             </p>
           </div>
           <ESDTopics />
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 dark:bg-slate-950 text-white py-16">
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             {/* About Section */}
@@ -548,9 +658,9 @@ const Index = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-fade-in"
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-fade-in group"
         >
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp className="w-6 h-6 group-hover:animate-bounce" />
         </button>
       )}
     </div>
