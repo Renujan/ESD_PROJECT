@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'cv', 'esd-topics'];
+      const sections = ['about', 'cv', 'ps-topics'];
       const scrollPosition = window.scrollY + 100;
 
       setShowScrollTop(window.scrollY > 300);
@@ -156,13 +155,13 @@ const Index = () => {
                 )}
               </button>
               <button
-                onClick={() => scrollToSection('esd-topics')}
+                onClick={() => scrollToSection('ps-topics')}
                 className={`relative px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${
-                  activeSection === 'esd-topics' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                  activeSection === 'ps-topics' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
-                ESD Topics
-                {activeSection === 'esd-topics' && (
+                PS Topics
+                {activeSection === 'ps-topics' && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
                 )}
               </button>
@@ -208,10 +207,10 @@ const Index = () => {
                   CV
                 </button>
                 <button
-                  onClick={() => scrollToSection('esd-topics')}
+                  onClick={() => scrollToSection('ps-topics')}
                   className="text-left py-3 px-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all"
                 >
-                  ESD Topics
+                  PS Topics
                 </button>
               </div>
             </div>
@@ -427,12 +426,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ESD Topics Section */}
-      <section id="esd-topics" className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* PS Topics Section */}
+      <section id="ps-topics" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-              ESD Topics
+              PS Topics
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
             <p className="text-lg text-slate-600 dark:text-slate-300 mt-6 max-w-3xl mx-auto">
@@ -486,8 +485,8 @@ const Index = () => {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => scrollToSection('esd-topics')} className="text-slate-300 hover:text-white transition-colors">
-                    ESD Topics
+                  <button onClick={() => scrollToSection('ps-topics')} className="text-slate-300 hover:text-white transition-colors">
+                    PS Topics
                   </button>
                 </li>
               </ul>

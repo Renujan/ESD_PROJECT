@@ -258,9 +258,9 @@ export const ESDTopics = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4">Employability Skills Development Topics</h2>
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4">Professional Skills Development Topics</h2>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-          Explore comprehensive coverage of essential ESD topics with theory, examples, and practical Q&As.
+          Explore comprehensive coverage of essential PS topics with theory, examples, and practical Q&As.
           Each topic is designed to enhance your professional development and workplace readiness.
         </p>
       </div>
