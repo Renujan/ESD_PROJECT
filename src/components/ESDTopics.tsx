@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp, BookOpen, Users, Heart, FileText, MessageSquare, Briefcase, Presentation, Mail, PenTool, UserCheck, Brain } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BookOpen, Users, Heart, FileText, MessageSquare, Briefcase, Presentation, Mail, PenTool, UserCheck, Brain } from "lucide-react";
 
 export const ESDTopics = () => {
-  const [expandedTopics, setExpandedTopics] = useState<Record<string, boolean>>({});
-
-  const toggleTopic = (topicId: string) => {
-    setExpandedTopics(prev => ({
-      ...prev,
-      [topicId]: !prev[topicId]
-    }));
-  };
-
   const getIcon = (topicId: string) => {
     const iconMap = {
       'professional-skills': BookOpen,
@@ -28,7 +19,7 @@ export const ESDTopics = () => {
       'emotional-intelligence': Brain
     };
     const IconComponent = iconMap[topicId as keyof typeof iconMap] || BookOpen;
-    return <IconComponent className="w-6 h-6" />;
+    return <IconComponent className="w-5 h-5" />;
   };
 
   const getTopicImage = (topicId: string) => {
@@ -281,67 +272,53 @@ export const ESDTopics = () => {
         </p>
       </div>
 
-      <div className="grid gap-6">
-        {esdTopics.map((topic) => (
-          <Card key={topic.id} className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm overflow-hidden">
-            <div className="relative">
-              <img 
-                src={getTopicImage(topic.id)} 
-                alt={topic.title}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <div className="flex items-center space-x-3">
-                  <div className="text-white/90">
-                    {getIcon(topic.id)}
-                  </div>
-                  <h3 className="text-xl font-bold">{topic.title}</h3>
-                </div>
-              </div>
-            </div>
-            
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardDescription className="mt-2 text-slate-600 dark:text-slate-300">
-                    {topic.shortDescription}
-                  </CardDescription>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => toggleTopic(topic.id)}
-                  className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                  {expandedTopics[topic.id] ? (
-                    <>
-                      <ChevronUp className="w-4 h-4 mr-1" />
-                      Show Less
-                    </>
-                  ) : (
-                    <>
-                      <ChevronDown className="w-4 h-4 mr-1" />
-                      Read More
-                    </>
-                  )}
-                </Button>
-              </div>
-            </CardHeader>
+      <Tabs defaultValue="professional-skills" className="w-full">
+        <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 w-full h-auto p-1 bg-slate-100 dark:bg-slate-800">
+          {esdTopics.map((topic) => (
+            <TabsTrigger 
+              key={topic.id} 
+              value={topic.id}
+              className="flex flex-col items-center gap-2 p-3 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-xs font-medium"
+            >
+              {getIcon(topic.id)}
+              <span className="text-center leading-tight">{topic.title}</span>
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-            {expandedTopics[topic.id] && (
-              <CardContent className="space-y-6">
+        {esdTopics.map((topic) => (
+          <TabsContent key={topic.id} value={topic.id} className="mt-6">
+            <Card className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm overflow-hidden">
+              <div className="relative">
+                <img 
+                  src={getTopicImage(topic.id)} 
+                  alt={topic.title}
+                  className="w-full h-64 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <div className="flex items-center space-x-3">
+                    <div className="text-white/90">
+                      {getIcon(topic.id)}
+                    </div>
+                    <h3 className="text-2xl font-bold">{topic.title}</h3>
+                  </div>
+                  <p className="mt-2 text-white/90 text-lg">{topic.shortDescription}</p>
+                </div>
+              </div>
+              
+              <CardContent className="space-y-6 p-6">
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Theory & Overview</h4>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-3 text-lg">Theory & Overview</h4>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{topic.theory}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-2">Examples</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-3 text-lg">Examples</h4>
+                  <ul className="space-y-3">
                     {topic.examples.map((example, index) => (
-                      <li key={index} className="text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-blue-200 dark:border-blue-700">
+                      <li key={index} className="text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-blue-200 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-900/20 p-3 rounded-r">
                         {example}
                       </li>
                     ))}
@@ -349,25 +326,25 @@ export const ESDTopics = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-3">Common Questions & Answers</h4>
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-4 text-lg">Common Questions & Answers</h4>
                   <div className="space-y-4">
                     {topic.questions.map((qa, index) => (
-                      <div key={index} className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-4">
+                      <div key={index} className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-4 border border-slate-200 dark:border-slate-600">
                         <p className="font-medium text-slate-700 dark:text-slate-200 mb-2">
-                          <span className="text-blue-600 dark:text-blue-400">Q:</span> {qa.q}
+                          <span className="text-blue-600 dark:text-blue-400 font-bold">Q:</span> {qa.q}
                         </p>
                         <p className="text-slate-600 dark:text-slate-300">
-                          <span className="text-green-600 dark:text-green-400">A:</span> {qa.a}
+                          <span className="text-green-600 dark:text-green-400 font-bold">A:</span> {qa.a}
                         </p>
                       </div>
                     ))}
                   </div>
                 </div>
               </CardContent>
-            )}
-          </Card>
+            </Card>
+          </TabsContent>
         ))}
-      </div>
+      </Tabs>
     </div>
   );
 };
