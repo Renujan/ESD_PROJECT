@@ -33,19 +33,19 @@ export const ESDTopics = () => {
 
   const getTopicImage = (topicId: string) => {
     const imageMap = {
-      'professional-skills': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=200&fit=crop&crop=center',
-      'employability-skills': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&crop=center',
-      'values-beliefs': 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=200&fit=crop&crop=center',
-      'cv-writing': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop&crop=center',
-      'interview-manners': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop&crop=center',
-      'portfolio': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=200&fit=crop&crop=center',
-      'meeting-speaking': 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&h=200&fit=crop&crop=center',
-      'email-etiquette': 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400&h=200&fit=crop&crop=center',
-      'proposal-writing': 'https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=400&h=200&fit=crop&crop=center',
-      'team-leadership': 'https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?w=400&h=200&fit=crop&crop=center',
-      'emotional-intelligence': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=200&fit=crop&crop=center'
+      'professional-skills': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop&crop=center&q=80',
+      'employability-skills': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center&q=80',
+      'values-beliefs': 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=400&fit=crop&crop=center&q=80',
+      'cv-writing': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop&crop=center&q=80',
+      'interview-manners': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center&q=80',
+      'portfolio': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop&crop=center&q=80',
+      'meeting-speaking': 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&h=400&fit=crop&crop=center&q=80',
+      'email-etiquette': 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=400&fit=crop&crop=center&q=80',
+      'proposal-writing': 'https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=800&h=400&fit=crop&crop=center&q=80',
+      'team-leadership': 'https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?w=800&h=400&fit=crop&crop=center&q=80',
+      'emotional-intelligence': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop&crop=center&q=80'
     };
-    return imageMap[topicId as keyof typeof imageMap] || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=200&fit=crop&crop=center';
+    return imageMap[topicId as keyof typeof imageMap] || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop&crop=center&q=80';
   };
 
   const esdTopics = [
@@ -289,6 +289,7 @@ export const ESDTopics = () => {
                 src={getTopicImage(topic.id)} 
                 alt={topic.title}
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
